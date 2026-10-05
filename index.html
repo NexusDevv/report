@@ -6,71 +6,87 @@
 <title>التقرير المجمّع لعمليات قطاع MTF</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#d9ccae;--bg2:#cbbd9b;--card:#efe6cf;--ink:#2a2016;--mute:#5e4f3a;--line:#a89774;--acc:#4a3322;--hi:#6b4a2f;--gold:#8a6a2c;--ok:#3d5a1f;--hd1:#5a3e28;--hd2:#2f2218;--hdt:#f0e4c4;
+:root{--bg:#e4d9bf;--bg2:#d6c8a8;--card:#f4eddb;--ink:#2a2016;--mute:#6a5a42;--line:#c2b08a;--acc:#4a3322;--gold:#8a6a2c;--ok:#3d5a1f;--hd1:#5a3e28;--hd2:#2f2218;--hdt:#f3e8cc;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1710;--bg2:#271e15;--card:#33281c;--ink:#eadfc3;--mute:#b9a883;--line:#5a4a34;--acc:#d2b57a;--hi:#c9a566;--gold:#d2b57a;--ok:#9dbd5f;--hd1:#6b4a2f;--hd2:#2a1f15}}
-:root[data-theme="dark"]{--bg:#1e1710;--bg2:#271e15;--card:#33281c;--ink:#eadfc3;--mute:#b9a883;--line:#5a4a34;--acc:#d2b57a;--hi:#c9a566;--gold:#d2b57a;--ok:#9dbd5f;--hd1:#6b4a2f;--hd2:#2a1f15}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c160f;--bg2:#271e15;--card:#2c2219;--ink:#ece1c6;--mute:#b5a47f;--line:#4d3f2c;--acc:#dcc088;--gold:#d2b57a;--ok:#a3c46a;--hd1:#5e412a;--hd2:#2a1f15}}
+:root[data-theme="dark"]{--bg:#1c160f;--bg2:#271e15;--card:#2c2219;--ink:#ece1c6;--mute:#b5a47f;--line:#4d3f2c;--acc:#dcc088;--gold:#d2b57a;--ok:#a3c46a;--hd1:#5e412a;--hd2:#2a1f15}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);font-family:'Tajawal',Tahoma,'Segoe UI',Arial,sans-serif;line-height:1.8;background:var(--bg);
-background-image:repeating-linear-gradient(135deg,transparent 0 14px,rgba(0,0,0,.035) 14px 28px)}
-.wrap{max-width:980px;margin:0 auto;padding:14px 14px 40px}
-.cover{background:linear-gradient(160deg,var(--hd1),var(--hd2));color:var(--hdt);border:2px solid var(--gold);border-radius:6px;padding:28px 20px;text-align:center;position:relative}
-.cover:before,.cover:after{content:"";position:absolute;right:0;left:0;height:6px;background:repeating-linear-gradient(90deg,var(--gold) 0 18px,transparent 18px 30px);opacity:.7}
-.cover:before{top:6px}.cover:after{bottom:6px}
-.cover small{letter-spacing:2px;opacity:.85}
-.cover h1{margin:6px 0;font-size:1.9rem;font-weight:800}
-.cover p{margin:0;opacity:.9}
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
-.chips span{border:1px solid var(--gold);padding:0 12px;font-size:.85rem;border-radius:3px}
-.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 0;margin-top:10px;background:var(--bg)}
-.tabs button{flex:0 0 auto;font:inherit;font-weight:700;cursor:pointer;padding:6px 16px;border:1px solid var(--line);border-radius:4px;background:var(--bg2);color:var(--mute)}
-.tabs button[aria-selected="true"]{background:linear-gradient(180deg,var(--hd1),var(--hd2));color:var(--hdt);border-color:var(--gold)}
+body{margin:0;color:var(--ink);font-family:'Tajawal',Tahoma,'Segoe UI',Arial,sans-serif;line-height:1.8;background:var(--bg)}
+.wrap{max-width:960px;margin:0 auto;padding:16px 14px 32px}
+
+/* Cover */
+.cover{background:linear-gradient(160deg,var(--hd1),var(--hd2));color:var(--hdt);border-radius:10px;padding:30px 22px 26px;text-align:center;border:1px solid var(--gold);box-shadow:inset 0 0 0 4px var(--hd2),inset 0 0 0 5px rgba(210,181,122,.35)}
+.cover .unit{font-size:.9rem;color:var(--gold);font-weight:700}
+.cover h1{margin:4px 0 2px;font-size:clamp(1.5rem,5vw,2.1rem);font-weight:800;line-height:1.3}
+.cover p{margin:0;opacity:.8}
+.meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.meta span{background:rgba(255,255,255,.07);border:1px solid rgba(210,181,122,.4);padding:2px 12px;font-size:.85rem;border-radius:20px}
+.meta .secret{border-color:var(--gold);color:var(--gold);font-weight:800}
+
+/* Tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:4px;overflow-x:auto;padding:12px 0 0;margin:6px 0 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs button{flex:0 0 auto;font:inherit;font-weight:700;cursor:pointer;padding:6px 14px;border:0;border-bottom:3px solid transparent;background:none;color:var(--mute)}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--acc);border-bottom-color:var(--gold)}
+.tabs button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
 .panel{display:none}.panel.on{display:block}
-h2{font-size:1.25rem;margin:8px 0 12px;color:var(--acc);border-right:5px solid var(--gold);padding-right:10px}
-.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--hi);border-radius:4px;padding:14px 16px;margin-bottom:12px}
-.card b.t{display:block;color:var(--gold);margin-bottom:2px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:12px}
-.kpi{background:linear-gradient(180deg,var(--hd1),var(--hd2));color:var(--hdt);border-radius:4px;padding:10px;text-align:center;border-bottom:3px solid var(--gold)}
-.kpi b{display:block;font-size:1.7rem;font-weight:800}
-.kpi span{font-size:.8rem;opacity:.85}
-.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--card)}
+
+h2{font-size:1.2rem;margin:4px 0 12px;color:var(--acc);display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card b.t{display:block;color:var(--gold);margin-bottom:4px;font-size:.95rem}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center}
+.kpi b{display:block;font-size:1.8rem;font-weight:800;color:var(--acc);line-height:1.2}
+.kpi span{font-size:.82rem;color:var(--mute)}
+
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 table{border-collapse:collapse;width:100%;font-size:.88rem}
-th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:linear-gradient(180deg,var(--hd1),var(--hd2));color:var(--hdt);white-space:nowrap}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--hd2);color:var(--hdt);white-space:nowrap;font-weight:700}
+tbody tr:nth-child(even) td{background:rgba(0,0,0,.025)}
 tr:last-child td{border-bottom:0}
+.kv td{background:none!important}
 .kv td:first-child{width:32%;color:var(--mute);white-space:nowrap;font-weight:700}
-.num{display:inline-block;background:var(--hd1);color:var(--hdt);border:1px solid var(--gold);padding:0 12px;font-weight:800;border-radius:3px}
-.tag{font-size:.8rem;border:1px solid var(--line);padding:0 10px;color:var(--mute);border-radius:3px;margin-right:8px}
+.card .kv{margin:-6px 0}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;background:var(--hd1);color:var(--hdt);font-weight:800;border-radius:50%;font-size:.95rem}
+.tag{font-size:.78rem;border:1px solid var(--line);padding:0 10px;color:var(--mute);border-radius:20px;font-weight:500}
+.tag.s{border-color:var(--gold);color:var(--gold)}
 .ok{color:var(--ok);font-weight:800}
 ul,ol{margin:4px 0;padding-right:20px}
-.foot{text-align:center;color:var(--mute);font-size:.82rem;margin-top:22px}
+li{margin-bottom:2px}
+.note{text-align:center;color:var(--mute);font-size:.82rem;margin-top:14px}
 
-.cover .star{letter-spacing:10px;color:var(--gold);font-size:1rem;margin-bottom:2px}
-.cover .stamp{display:inline-block;margin-top:12px;border:2px solid var(--gold);color:var(--gold);padding:0 14px;font-weight:800;letter-spacing:3px;transform:rotate(-3deg);border-radius:3px;font-size:.85rem}
-h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
-.card{position:relative}
-.card:after{content:"";position:absolute;left:6px;bottom:6px;width:14px;height:14px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);opacity:.6}
-.kpi{clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%)}
-@media print{.tabs{display:none}.panel{display:block!important;break-before:page}}
+/* Credits */
+.credit{margin-top:32px;text-align:center;direction:ltr}
+.credit .lbl{font-size:.78rem;color:var(--mute);letter-spacing:.5px;margin-bottom:8px}
+.credit .names{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.credit a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:800;background:var(--card);border:1px solid var(--line);padding:6px 14px 6px 8px;border-radius:24px;transition:border-color .15s,transform .15s}
+.credit a:hover{border-color:var(--gold);transform:translateY(-1px)}
+.credit a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.credit .av{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:linear-gradient(160deg,var(--hd1),var(--hd2));color:var(--hdt);font-size:.75rem;font-weight:800}
+.credit .amp{color:var(--gold);font-weight:800}
+@media (prefers-reduced-motion:reduce){.credit a{transition:none}.credit a:hover{transform:none}}
+@media print{.tabs{display:none}.panel{display:block!important;break-before:page}.panel:first-of-type{break-before:auto}.credit{break-before:avoid}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<div class="cover">
-<div class="star">★ ★ ★</div><small>قيادة قطاع MTF</small>
+<header class="cover">
+<div class="unit">★ قيادة قطاع MTF ★</div>
 <h1>التقرير المجمّع للعمليات</h1>
 <p>أربع عمليات ميدانية موثّقة</p>
-<div class="stamp">سري · تقرير عمليات</div><div class="chips"><span>5 أكتوبر 2026</span><span>4 تقارير</span><span>نسبة النجاح 100%</span></div>
-</div>
+<div class="meta"><span class="secret">سري</span><span>5 أكتوبر 2026</span><span>4 تقارير</span><span>نسبة النجاح 100%</span></div>
+</header>
 
 <nav class="tabs" role="tablist">
 <button role="tab" aria-selected="true" data-t="p0">الملخص العام</button>
-<button role="tab" aria-selected="false" data-t="p1">1 · لوس سانتوس</button>
-<button role="tab" aria-selected="false" data-t="p2">2 · بوليتو وساندي</button>
-<button role="tab" aria-selected="false" data-t="p3">3 · ساندي شورز</button>
-<button role="tab" aria-selected="false" data-t="p4">4 · مقر CIA</button>
+<button role="tab" aria-selected="false" data-t="p1">لوس سانتوس</button>
+<button role="tab" aria-selected="false" data-t="p2">بوليتو وساندي</button>
+<button role="tab" aria-selected="false" data-t="p3">ساندي شورز</button>
+<button role="tab" aria-selected="false" data-t="p4">مقر CIA</button>
 </nav>
 
 <section class="panel on" id="p0">
@@ -93,11 +109,11 @@ h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
 <tr><td>3</td><td>مساندة عسكرية وتدخل سريع</td><td>ساندي شورز</td><td>Tarek LB</td><td>غير مذكور</td><td>غير مذكور</td><td>جميع المهاجمين (دون عدد)</td><td>غير مذكور</td><td>لا إصابات</td><td class="ok">تحرير كامل</td><td>عام للتداول</td></tr>
 <tr><td>4</td><td>تأمين عسكري عاجل وتدخل سريع</td><td>مقر الـ CIA</td><td>شجاع القحطاني</td><td>غير مذكور</td><td>غير مذكور</td><td>15</td><td>غير مذكور</td><td>غير مذكورة</td><td class="ok">نجاح 100%</td><td>عام للتداول</td></tr>
 </tbody></table></div>
-<p class="foot">الخانات غير الواردة في التقارير الأصلية كُتب فيها «غير مذكور».</p>
+<p class="note">الخانات غير الواردة في التقارير الأصلية كُتب فيها «غير مذكور».</p>
 </section>
 
 <section class="panel" id="p1">
-<h2><span class="num">1</span> حملة أمنية تأمينية استثنائية<span class="tag">عام للتداول</span></h2>
+<h2><span class="num">1</span> حملة أمنية تأمينية استثنائية <span class="tag">عام للتداول</span></h2>
 <div class="card"><table class="kv"><tbody>
 <tr><td>الجهة المُصدرة</td><td>قيادة عمليات فرقة المهام الخاصة (MTF)، وزارة الدفاع، جمهورية لوس سانتوس</td></tr>
 <tr><td>التاريخ</td><td>5 أكتوبر 2026</td></tr>
@@ -118,7 +134,7 @@ h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
 </section>
 
 <section class="panel" id="p2">
-<h2><span class="num">2</span> استنفار أمني: بوليتو وساندي<span class="tag">سري - للاستخدام الداخلي</span></h2>
+<h2><span class="num">2</span> استنفار أمني: بوليتو وساندي <span class="tag s">سري - للاستخدام الداخلي</span></h2>
 <div class="card"><table class="kv"><tbody>
 <tr><td>نوع العملية</td><td>استنفار أمني</td></tr>
 <tr><td>نطاق العملية</td><td>بوليتو وساندي</td></tr>
@@ -134,7 +150,7 @@ h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
 </section>
 
 <section class="panel" id="p3">
-<h2><span class="num">3</span> مساندة عسكرية وتدخل سريع: ساندي شورز<span class="tag">عام للتداول</span></h2>
+<h2><span class="num">3</span> مساندة عسكرية وتدخل سريع: ساندي شورز <span class="tag">عام للتداول</span></h2>
 <div class="card"><table class="kv"><tbody>
 <tr><td>الجهة المُصدرة</td><td>قيادة قطاع MTF</td></tr>
 <tr><td>التاريخ</td><td>5 أكتوبر 2026</td></tr>
@@ -153,7 +169,7 @@ h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
 </section>
 
 <section class="panel" id="p4">
-<h2><span class="num">4</span> تأمين عسكري عاجل: مقر الـ CIA<span class="tag">عام للتداول</span></h2>
+<h2><span class="num">4</span> تأمين عسكري عاجل: مقر الـ CIA <span class="tag">عام للتداول</span></h2>
 <div class="card"><table class="kv"><tbody>
 <tr><td>الجهة المُصدرة</td><td>قيادة قطاع MTF</td></tr>
 <tr><td>التاريخ</td><td>5 أكتوبر 2026</td></tr>
@@ -171,6 +187,15 @@ h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
 <li><b>إسقاط العناصر:</b> تحييد 15 عنصراً مسلحاً.</li>
 <li><b>النتيجة النهائية:</b> <span class="ok">نجاح كامل (100%)</span> وإحباط عملية التحرير وعودة الاستقرار.</li></ul></div>
 </section>
+
+<footer class="credit">
+<div class="lbl">Developed by</div>
+<div class="names">
+<a href="https://discord.com/users/1091698576373055538" target="_blank" rel="noopener noreferrer"><span class="av">TL</span>Tarek LB</a>
+<span class="amp">&amp;</span>
+<a href="https://discord.com/users/986237451943166013" target="_blank" rel="noopener noreferrer"><span class="av">S</span>Silent</a>
+</div>
+</footer>
 
 </div>
 <script>
