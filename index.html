@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>التقرير المجمّع لعمليات قطاع MTF</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#d9ccae;--bg2:#cbbd9b;--card:#efe6cf;--ink:#2a2016;--mute:#5e4f3a;--line:#a89774;--acc:#4a3322;--hi:#6b4a2f;--gold:#8a6a2c;--ok:#3d5a1f;--hd1:#5a3e28;--hd2:#2f2218;--hdt:#f0e4c4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1710;--bg2:#271e15;--card:#33281c;--ink:#eadfc3;--mute:#b9a883;--line:#5a4a34;--acc:#d2b57a;--hi:#c9a566;--gold:#d2b57a;--ok:#9dbd5f;--hd1:#6b4a2f;--hd2:#2a1f15}}
+:root[data-theme="dark"]{--bg:#1e1710;--bg2:#271e15;--card:#33281c;--ink:#eadfc3;--mute:#b9a883;--line:#5a4a34;--acc:#d2b57a;--hi:#c9a566;--gold:#d2b57a;--ok:#9dbd5f;--hd1:#6b4a2f;--hd2:#2a1f15}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:'Tajawal',Tahoma,'Segoe UI',Arial,sans-serif;line-height:1.8;background:var(--bg);
+background-image:repeating-linear-gradient(135deg,transparent 0 14px,rgba(0,0,0,.035) 14px 28px)}
+.wrap{max-width:980px;margin:0 auto;padding:14px 14px 40px}
+.cover{background:linear-gradient(160deg,var(--hd1),var(--hd2));color:var(--hdt);border:2px solid var(--gold);border-radius:6px;padding:28px 20px;text-align:center;position:relative}
+.cover:before,.cover:after{content:"";position:absolute;right:0;left:0;height:6px;background:repeating-linear-gradient(90deg,var(--gold) 0 18px,transparent 18px 30px);opacity:.7}
+.cover:before{top:6px}.cover:after{bottom:6px}
+.cover small{letter-spacing:2px;opacity:.85}
+.cover h1{margin:6px 0;font-size:1.9rem;font-weight:800}
+.cover p{margin:0;opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.chips span{border:1px solid var(--gold);padding:0 12px;font-size:.85rem;border-radius:3px}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 0;margin-top:10px;background:var(--bg)}
+.tabs button{flex:0 0 auto;font:inherit;font-weight:700;cursor:pointer;padding:6px 16px;border:1px solid var(--line);border-radius:4px;background:var(--bg2);color:var(--mute)}
+.tabs button[aria-selected="true"]{background:linear-gradient(180deg,var(--hd1),var(--hd2));color:var(--hdt);border-color:var(--gold)}
+.panel{display:none}.panel.on{display:block}
+h2{font-size:1.25rem;margin:8px 0 12px;color:var(--acc);border-right:5px solid var(--gold);padding-right:10px}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--hi);border-radius:4px;padding:14px 16px;margin-bottom:12px}
+.card b.t{display:block;color:var(--gold);margin-bottom:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:12px}
+.kpi{background:linear-gradient(180deg,var(--hd1),var(--hd2));color:var(--hdt);border-radius:4px;padding:10px;text-align:center;border-bottom:3px solid var(--gold)}
+.kpi b{display:block;font-size:1.7rem;font-weight:800}
+.kpi span{font-size:.8rem;opacity:.85}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:linear-gradient(180deg,var(--hd1),var(--hd2));color:var(--hdt);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.kv td:first-child{width:32%;color:var(--mute);white-space:nowrap;font-weight:700}
+.num{display:inline-block;background:var(--hd1);color:var(--hdt);border:1px solid var(--gold);padding:0 12px;font-weight:800;border-radius:3px}
+.tag{font-size:.8rem;border:1px solid var(--line);padding:0 10px;color:var(--mute);border-radius:3px;margin-right:8px}
+.ok{color:var(--ok);font-weight:800}
+ul,ol{margin:4px 0;padding-right:20px}
+.foot{text-align:center;color:var(--mute);font-size:.82rem;margin-top:22px}
+
+.cover .star{letter-spacing:10px;color:var(--gold);font-size:1rem;margin-bottom:2px}
+.cover .stamp{display:inline-block;margin-top:12px;border:2px solid var(--gold);color:var(--gold);padding:0 14px;font-weight:800;letter-spacing:3px;transform:rotate(-3deg);border-radius:3px;font-size:.85rem}
+h2:before{content:"▰ ";color:var(--gold);font-size:.9em}
+.card{position:relative}
+.card:after{content:"";position:absolute;left:6px;bottom:6px;width:14px;height:14px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);opacity:.6}
+.kpi{clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%)}
+@media print{.tabs{display:none}.panel{display:block!important;break-before:page}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+<div class="star">★ ★ ★</div><small>قيادة قطاع MTF</small>
+<h1>التقرير المجمّع للعمليات</h1>
+<p>أربع عمليات ميدانية موثّقة</p>
+<div class="stamp">سري · تقرير عمليات</div><div class="chips"><span>5 أكتوبر 2026</span><span>4 تقارير</span><span>نسبة النجاح 100%</span></div>
+</div>
+
+<nav class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="p0">الملخص العام</button>
+<button role="tab" aria-selected="false" data-t="p1">1 · لوس سانتوس</button>
+<button role="tab" aria-selected="false" data-t="p2">2 · بوليتو وساندي</button>
+<button role="tab" aria-selected="false" data-t="p3">3 · ساندي شورز</button>
+<button role="tab" aria-selected="false" data-t="p4">4 · مقر CIA</button>
+</nav>
+
+<section class="panel on" id="p0">
+<h2>الملخص التنفيذي</h2>
+<div class="card"><p style="margin:0">نفّذ قطاع MTF أربع عمليات ميدانية بتاريخ 5 أكتوبر 2026 (التقرير الثاني بلا تاريخ صريح): حملة تأمين شاملة لمدينة لوس سانتوس، وحملة سحب أسلحة وضبط مطلوبين في بوليتو وساندي، وتدخل سريع لمساندة قطاع الشيرف في ساندي شورز، وتأمين عاجل لمقر الـ CIA. وصُنّفت جميعها ناجحة.</p></div>
+<div class="kpis">
+<div class="kpi"><b>4</b><span>عمليات منفذة</span></div>
+<div class="kpi"><b>15</b><span>موقوفاً</span></div>
+<div class="kpi"><b>15</b><span>عنصراً محيَّداً (التقرير 4)</span></div>
+<div class="kpi"><b>10</b><span>MK II مصادرة</span></div>
+<div class="kpi"><b>1</b><span>AK مصادرة</span></div>
+<div class="kpi"><b>5</b><span>كلبشات</span></div>
+</div>
+<h2>الجدول الإحصائي العام</h2>
+<div class="scroll"><table>
+<thead><tr><th>#</th><th>العملية</th><th>المنطقة</th><th>القائد</th><th>المدة</th><th>الموقوفون</th><th>المحيَّدون</th><th>المضبوطات</th><th>الخسائر</th><th>النتيجة</th><th>التصنيف</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>حملة أمنية تأمينية استثنائية</td><td>لوس سانتوس</td><td>مراد كين</td><td>ساعة ونصف</td><td>غير مذكور</td><td>غير مذكور</td><td>غير مذكور</td><td>لا خسائر</td><td class="ok">نجاح 100%</td><td>عام للتداول</td></tr>
+<tr><td>2</td><td>استنفار أمني: سحب الأسلحة وضبط المطلوبين</td><td>بوليتو وساندي</td><td>Tarek LB</td><td>غير مذكور</td><td>15</td><td>غير مذكور</td><td>10 MK II، 1 AK، 5 كلبشات</td><td>غير مذكورة</td><td class="ok">تمت بنجاح</td><td>سري - داخلي</td></tr>
+<tr><td>3</td><td>مساندة عسكرية وتدخل سريع</td><td>ساندي شورز</td><td>Tarek LB</td><td>غير مذكور</td><td>غير مذكور</td><td>جميع المهاجمين (دون عدد)</td><td>غير مذكور</td><td>لا إصابات</td><td class="ok">تحرير كامل</td><td>عام للتداول</td></tr>
+<tr><td>4</td><td>تأمين عسكري عاجل وتدخل سريع</td><td>مقر الـ CIA</td><td>شجاع القحطاني</td><td>غير مذكور</td><td>غير مذكور</td><td>15</td><td>غير مذكور</td><td>غير مذكورة</td><td class="ok">نجاح 100%</td><td>عام للتداول</td></tr>
+</tbody></table></div>
+<p class="foot">الخانات غير الواردة في التقارير الأصلية كُتب فيها «غير مذكور».</p>
+</section>
+
+<section class="panel" id="p1">
+<h2><span class="num">1</span> حملة أمنية تأمينية استثنائية<span class="tag">عام للتداول</span></h2>
+<div class="card"><table class="kv"><tbody>
+<tr><td>الجهة المُصدرة</td><td>قيادة عمليات فرقة المهام الخاصة (MTF)، وزارة الدفاع، جمهورية لوس سانتوس</td></tr>
+<tr><td>التاريخ</td><td>5 أكتوبر 2026</td></tr>
+<tr><td>منطقة العمليات</td><td>مدينة لوس سانتوس (بالكامل)</td></tr>
+<tr><td>القائد الميداني</td><td>القائد مراد كين</td></tr>
+<tr><td>المدة</td><td>ساعة ونصف</td></tr>
+<tr><td>مستوى التهديد</td><td>مرتفع (استنفار أمني عام)</td></tr>
+<tr><td>العتاد</td><td>5 مدرعات عسكرية تكتيكية ثقيلة + تسليح تكتيكي لحرب الشوارع</td></tr>
+</tbody></table></div>
+<div class="card"><b class="t">الخلفية والأسباب</b>تصاعدت النزاعات المسلحة وحرب الشوارع بين العصابات داخل أحياء المدينة، ما هدد الأمن العام وسلامة المواطنين، فتقرر إعلان الاستنفار الشامل ونشر قوات MTF لفرض القانون وتأمين البنية التحتية الحساسة.</div>
+<div class="card"><b class="t">مجريات العمليات</b>
+<ol><li><b>تأمين المحاور الرئيسية:</b> طوق أمني بالمدرعات الخمس لقطع إمدادات العناصر المسلحة وتحركاتها.</li>
+<li><b>تأمين المواقع المشبوهة:</b><ul>
+<li>الكراجات الحمراء: تأمين كامل ومسح أمني شامل.</li>
+<li>الكراجات البيضاء: تطهير المحيط وتأمين المداخل والمخارج.</li>
+<li>مبنى قيد الإنشاء: السيطرة على النقاط المرتفعة لمنع استخدامها كأبراج قناصة.</li></ul></li></ol></div>
+<div class="card"><b class="t">التقييم</b><span class="ok">نجاح كامل (100%)</span> دون خسائر بشرية أو مادية. تقييم القائد مراد كين النهائي 10/10 لكفاءته في إدارة الأزمات والسيطرة الميدانية.</div>
+</section>
+
+<section class="panel" id="p2">
+<h2><span class="num">2</span> استنفار أمني: بوليتو وساندي<span class="tag">سري - للاستخدام الداخلي</span></h2>
+<div class="card"><table class="kv"><tbody>
+<tr><td>نوع العملية</td><td>استنفار أمني</td></tr>
+<tr><td>نطاق العملية</td><td>بوليتو وساندي</td></tr>
+<tr><td>الجهة المنفذة</td><td>قطاع MTF</td></tr>
+<tr><td>الهدف</td><td>سحب ومصادرة الأسلحة وضبط المطلوبين</td></tr>
+<tr><td>الحالة</td><td class="ok">تمت بنجاح</td></tr>
+<tr><td>القائد الميداني</td><td>Tarek LB</td></tr>
+<tr><td>التاريخ</td><td>غير مذكور</td></tr>
+</tbody></table></div>
+<div class="card"><b class="t">ملخص العملية</b>باشر القطاع حالة استنفار أمني في النطاق لتنفيذ حملة ميدانية تستهدف سحب الأسلحة وضبط المتورطين، وفق التوجيهات الميدانية المعتمدة من قيادة القطاع.</div>
+<div class="card"><b class="t">نتائج الحملة</b><ul><li>القبض على 15 شخصاً.</li><li>مصادرة 10 قطع MK II.</li><li>ضبط 5 كلبشات.</li><li>ضبط قطعة AK واحدة.</li></ul></div>
+<div class="card"><b class="t">الهدف الأمني والخلاصة</b>الحد من انتشار الأسلحة وسحبها من المتواجدين وضبط المخالفين، بما يرفع مستوى الأمن والسيطرة الميدانية. رُفع التقرير لقيادة القطاع للاطلاع والتوثيق.</div>
+</section>
+
+<section class="panel" id="p3">
+<h2><span class="num">3</span> مساندة عسكرية وتدخل سريع: ساندي شورز<span class="tag">عام للتداول</span></h2>
+<div class="card"><table class="kv"><tbody>
+<tr><td>الجهة المُصدرة</td><td>قيادة قطاع MTF</td></tr>
+<tr><td>التاريخ</td><td>5 أكتوبر 2026</td></tr>
+<tr><td>منطقة العمليات</td><td>مدينة ساندي شورز</td></tr>
+<tr><td>الجهة المُساندة</td><td>قطاع الشيرف (Sheriff)</td></tr>
+<tr><td>القائد الميداني</td><td>Tarek LB</td></tr>
+<tr><td>طبيعة الحدث</td><td>هجوم إرهابي ومداهمة مسلحة على قسم الشيرف + حرب شوارع عشوائية</td></tr>
+</tbody></table></div>
+<div class="card"><b class="t">سير العمليات</b>
+<ol><li><b>تحرير قسم الشيرف:</b> تدخل سريع وإسقاط جميع العناصر الإرهابية داخل القسم.</li>
+<li><b>السيطرة على حرب الشوارع:</b> التعامل بحزم مع العصابات وتحييد جميع العناصر المسلحة المشاركة.</li></ol></div>
+<div class="card"><b class="t">النتائج</b><ul>
+<li><b>تحرير المقر:</b> تأمين القسم بالكامل دون إصابات في صفوف القوات.</li>
+<li><b>تحييد التهديد:</b> إسقاط كافة العناصر الإرهابية والمخربين في الشوارع.</li>
+<li><b>النتيجة النهائية:</b> انسحاب العصابات من ساندي شورز وعودة الأمن والاستقرار.</li></ul></div>
+</section>
+
+<section class="panel" id="p4">
+<h2><span class="num">4</span> تأمين عسكري عاجل: مقر الـ CIA<span class="tag">عام للتداول</span></h2>
+<div class="card"><table class="kv"><tbody>
+<tr><td>الجهة المُصدرة</td><td>قيادة قطاع MTF</td></tr>
+<tr><td>التاريخ</td><td>5 أكتوبر 2026</td></tr>
+<tr><td>منطقة العمليات</td><td>مقر وكالة الاستخبارات (CIA)</td></tr>
+<tr><td>الجهة المالكة للموقع</td><td>جهة الاستخبارات (CIA)</td></tr>
+<tr><td>القائد الميداني</td><td>شجاع القحطاني</td></tr>
+<tr><td>طبيعة الحدث</td><td>محاولة فاشلة لعصابة «أولد سكول» لاقتحام المقر وتحرير أحد أفرادهم المحتجزين، أعقبها تبادل إطلاق نار كثيف</td></tr>
+</tbody></table></div>
+<div class="card"><b class="t">سير العمليات</b>
+<ol><li><b>الاستجابة والتدخل:</b> وصول فوري وطوق أمني تكتيكي حول المقر.</li>
+<li><b>الاشتباك وتطهير الموقع:</b> تبادل إطلاق نار كثيف مع المهاجمين.</li>
+<li><b>تحييد التهديد:</b> إسقاط 15 عنصراً وإفشال محاولة تحرير السجين.</li></ol></div>
+<div class="card"><b class="t">النتائج</b><ul>
+<li><b>تأمين المقر:</b> سيطرة تامة من الداخل والخارج.</li>
+<li><b>إسقاط العناصر:</b> تحييد 15 عنصراً مسلحاً.</li>
+<li><b>النتيجة النهائية:</b> <span class="ok">نجاح كامل (100%)</span> وإحباط عملية التحرير وعودة الاستقرار.</li></ul></div>
+</section>
+
+</div>
+<script>
+var tabs=document.querySelectorAll('.tabs button');
+tabs.forEach(function(b){b.addEventListener('click',function(){
+tabs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.t)});
+b.scrollIntoView({block:'nearest',inline:'center'});window.scrollTo({top:0});
+})});
+</script>
+</body>
+</html>
